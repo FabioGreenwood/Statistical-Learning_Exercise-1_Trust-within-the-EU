@@ -1,16 +1,17 @@
 import pandas as pd
-import datetime
+#import datetime
 #from datetime import now 
 
 
-def fg_counter(counter_value, total_iterations_qty, start, number_of_updates_required_for_total_run = 10, update_counter = False):
+def fg_counter(counter_value, total_iterations_qty, start_time, number_of_updates_required_for_total_run = 10, update_counter = False):
     if float(counter_value) % int(total_iterations_qty / number_of_updates_required_for_total_run) == 0:
         print("-----")
         print(datetime.now())
         PC = float(float(counter_value) / total_iterations_qty)
         print(str(counter_value) + " / " + str(total_iterations_qty))
         print(PC)
-        print("end estimate @: " + str((datetime.now() - start) * (total_iterations_qty / counter_value) + datetime.now()))
+        if not start_time == None:
+            print("end estimate @: " + str((datetime.now() - start_time) * (total_iterations_qty / counter_value) + datetime.now()))
         if update_counter == True:
             return PC
         
